@@ -21,7 +21,7 @@ public class Calculator {
         }
         FileInputStream inputStream;
         try {
-            inputStream = new FileInputStream(args[0]);
+            inputStream = new FileInputStream(args[0]); // мы же обсуждали это. Что параметры переданные при запуске пихаются в массив args. Вот из этого массива берется самый первый элемент, т.е. ожидается что это имя файла, отуда будут браться инструкции для рассчетов
         } catch (FileNotFoundException fileNotFoundException) {
             fileNotFoundException.printStackTrace();
             warningMethod();
@@ -59,6 +59,6 @@ public class Calculator {
 
     private void confirmScript(List<InstructionInt> instructionInts) {
         checkNotNull(instructionInts);
-        checkArgument(instructionInts.get(instructionInts.size() - 1) instanceof Apply);
+        checkArgument(instructionInts.get(instructionInts.size() - 1) instanceof Apply); //тут берется самая последняя инструкция (instructionInts.size() - 1 - это самый последний индекс в массиве) и проверяется, является ли эта инструкция применяющей. Если нет, я так понимаю, все вычитаное из файла не будет выполнено. Т.е. это как бы приказ выполнить все инструкции что были описаны в файле. Само выполнение происходит в другом месте. Тут же просто проверяется что последняя команда Apply. Если нет - будет выброшена ошибка скорее всего
     }
 }
