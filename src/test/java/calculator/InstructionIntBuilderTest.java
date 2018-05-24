@@ -33,7 +33,7 @@ public class InstructionIntBuilderTest {
         assertThat(instructionInts.get(0).calculate(3), is(-7d));
         assertThat(instructionInts.get(1).calculate(3), is(11d));
         assertThat(instructionInts.get(2).calculate(3), is(6d));
-        assertThat(instructionInts.get(3).calculate(3), is(0.5d));
+        assertThat(instructionInts.get(3).calculate(3), is(0.5d)); // потому что берется 3 из calculate(3) и делится на число в инструкции, которая лежит в списке инструкций под индексом 3, а там лежит 6. т.е. 3 / 6 = 0.5
         assertThat(instructionInts.get(4).calculate(3), is(4d));
     }
 
